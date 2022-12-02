@@ -51,6 +51,10 @@ const generateAction = async (req, res) => {
 
   // Send over the Prompt #2's output to our UI instead of Prompt #1's.
   res.status(200).json({ output: secondPromptOutput });
+  res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+});
 };
 
 export default generateAction;
