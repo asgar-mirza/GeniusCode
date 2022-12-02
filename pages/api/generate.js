@@ -15,7 +15,7 @@ Title:
 const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
-  const baseCompletion = await openai.createCompletion({
+  const baseCompletion =  openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
     temperature: 0.8,
@@ -37,7 +37,7 @@ const generateAction = async (req, res) => {
   `
   
   // I call the OpenAI API a second time with Prompt #2
-  const secondPromptCompletion = await openai.createCompletion({
+  const secondPromptCompletion = openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${secondPrompt}`,
     // I set a higher temperature for this one. Up to you!
