@@ -18,8 +18,8 @@ const generateAction = async (req, res) => {
   const baseCompletion =  openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
-    temperature: 0.8,
-    max_tokens: 60,
+    temperature: 0.4,
+    max_tokens: 30,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
@@ -41,9 +41,9 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${secondPrompt}`,
     // I set a higher temperature for this one. Up to you!
-    temperature: 0.85,
+    temperature: 0.4,
 		// I also increase max_tokens.
-    max_tokens: 60,
+    max_tokens: 30,
   });
   
   // Get the output
