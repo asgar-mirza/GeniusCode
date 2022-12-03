@@ -19,8 +19,10 @@ const callGenerateEndpoint = async () => {
     },
     body: JSON.stringify({ userInput }),
   });
+  
+  response.catch(err => alert(err))
 
-  const data = await response.json();
+  const data = await response.json()
   const { output } = data;
   console.log("OpenAI replied...", output.text)
 
